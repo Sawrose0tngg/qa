@@ -1,0 +1,113 @@
+<div class="card">
+  <div class="card__header">
+    <h2>Question Information <small>Select number of questions to answer the given questions.</small></h2>
+  </div>
+  <form method="Post" id="editModel" action="addanswer">
+    <input type="hidden" name="userId" value="">
+    <div class="card__body">
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Number of Question??</label>
+                <select class="select2" name="noQuestion" id="noQuestion" onchange="changeDrop()">
+                  <option value="0" selected>-----How many??-----</option>
+                  <option value="5" >5</option>
+                  <option value="6" >6</option>
+                  <option value="7" >7</option>
+                  <option value="8" >8</option>
+                  <option value="9" >9</option>
+                  <option value="10" >10</option>
+                </select>
+                <i class="form-group__bar"></i> 
+              </div>
+          </div>
+        </div>
+        
+        <div id="ansbody">
+          <div id="quebody">
+            <div class="card__body">
+              <p>Question</p>
+              <div class="form-group">
+                <textarea class="form-control" name="answer" placeholder="Please give suitable answer...."></textarea>
+                <i class="form-group__bar"></i> </div>
+            </div>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn-default" onclick="$('#page-loader').show();document.getElementById('editModel').submit()">Submit</button>
+            <button type="button" class="btn btn-link" onclick="javascript:location='/';">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  var list = [];
+  var qId = [];
+</script>
+
+<% questions.forEach(function(data) {%>
+  <script>
+    list.push("<%= data.question%>");
+    qId.push("<%= data._id%>");
+  </script>
+<% }) %>
+
+<script>
+  
+  function changeDrop() {
+
+  var queList = [];
+  var queId = [];
+  var i = 0;
+  while(queId.length <=10) {
+    var flag;
+    var count = 0;
+    flag = Math.floor(Math.random()*list.length);
+    if(queId.length == 0) {
+      queList.push(list[flag]);
+      queId.push(qId[flag]);
+    }
+    for(var j=0; j<queId.length; j++) {
+      if(queId[j] == qId[flag]) {
+        count = 1;
+        break;
+      }else {
+        count = 0;
+      }
+    }
+    if(count == 0) {
+      queList.push(list[flag]);
+      queId.push(qId[flag]);  
+    }
+    i++;
+  }
+
+    $('#ansbody').show();
+
+    var noquestion = $('#noQuestion').val();
+    var html = '';
+    var questionList = [];
+    for(var i=0; i<noquestion; i++) {
+      console.log(queList[i]);
+      //var flag;
+      if(questionList.length == 0) {
+        questionList.push(list[i]);
+      }
+
+      //flag = Math.floor(Math.random()*list.length);
+      html += '<div class="card__body">'+
+              '<input class="form-control" type="text" name="question'+i+'" value="'+queList[i]+'" readonly="true">'+
+              '<br><div class="form-group">'+
+                '<textarea class="form-control" name="answer'+i+'" placeholder="Please give suitable answer...."></textarea>'+
+                '<input type="hidden" name="questionId'+i+'" value="'+queId[i]+'">'+
+                '<i class="form-group__bar"></i> </div>'+
+              '</div>';
+    }
+    $('#quebody').html(html);
+
+  }
+
+</script>

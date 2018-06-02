@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card__header">
+        <button class="btn btn-default btn--icon pull-right" onclick="javascript:location='/users/add_question';"><i class="zmdi zmdi-plus"></i></button>
+      </div>
+      <div class="card__body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Question??</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% var count = 0;%>
+                <% questionList.forEach(function(data, key) {%>
+                <script language="javascript">
+                  function delete<%= data._id%>(){
+                    swal({
+                      title: "Are you sure?",
+                      text: "You will not be able to undo this delete!",
+                      type: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#DD6B55",
+                      confirmButtonText: "Yes, delete it!"
+                    }).then(function(){
+                      location='users?questionId=<%= data._id%>&action=delete';
+                    });
+                  }
+                  
+                </script>
+                <tr>
+                  <td><%= key+1 %></td>
+                  <td><%= data.question%></td>
+                  <td><button class="btn btn--light" onclick="javascript:location='/users/edit_question?questionId=<%= data._id%>';"><i class="zmdi zmdi-edit"></i></button>
+                    &nbsp;
+                    <button class="btn btn--light"  onclick="delete<%= data._id%>()"> <i class="zmdi zmdi-delete"></i></button></td>
+                </tr>
+                <% })%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>

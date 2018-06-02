@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= title%></title>
+<link rel="icon" href="/images/title.png" type="image/x-icon">
+<!-- Vendors -->
+
+<!-- Animate CSS -->
+<link href="/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+
+<!-- Material Design Icons -->
+<link href="/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+<!-- Malihu Scrollbar -->
+<link href="/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+<!-- Full Calendar -->
+<link href="/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+
+<!-- Select 2 -->
+<link href="/vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
+
+<!-- SweetAlert -->
+<link href="/vendors/bower_components/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- Site CSS -->
+<link href="/stylesheets/css/app.css" rel="stylesheet">
+
+<!-- Page loader -->
+<script src="/javascripts/js/page-loader.min.js"></script>
+
+<!-- jQuery -->
+<script src="/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Javascript Libraries -->
+
+<!-- Bootstrap -->
+<script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Malihu ScrollBar -->
+<script src="/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<!-- Bootstrap Notify -->
+<script src="/vendors/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
+
+<!-- Moment -->
+<script src="/vendors/bower_components/moment/min/moment.min.js"></script>
+
+<!-- FullCalendar -->
+<script src="/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+<!-- Simple Weather -->
+<script src="/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+
+<!-- Salvattore -->
+<script src="/vendors/bower_components/salvattore/dist/salvattore.min.js"></script>
+
+<!-- SweetAlert -->
+<script src="/vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+<!-- Flot Charts -->
+<script src="/vendors/bower_components/flot/jquery.flot.js"></script>
+<script src="/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+<script src="/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+
+<!-- Sparkline Charts -->
+<script src="/vendors/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+<!-- EasyPie Charts -->
+<script src="/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+<!-- Select 2 -->
+<script src="/vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Simple File Input -->
+<script src="/vendors/fileinput/fileinput.min.js"></script>
+
+<!-- Demo Only -->
+<script src="/demo/js/flot-charts/curved-line.js"></script>
+<script src="/demo/js/flot-charts/line.js"></script>
+<script src="/demo/js/easy-pie-charts.js"></script>
+<script src="/demo/js/misc.js"></script>
+<script src="/demo/js/sparkline-charts.js"></script>
+<script src="/demo/js/calendar.js"></script>
+<script src="/demo/js/misc.js"></script>
+
+<!-- Site Functions & Actions -->
+<script src="/javascripts/js/app.min.js"></script>
+</head>
+
+<body>
+<!-- Page Loader -->
+<div id="page-loader">
+  <div class="preloader preloader--xl preloader--light"> <svg viewBox="25 25 50 50">
+    <circle cx="50" cy="50" r="20" />
+    </svg> </div>
+</div>
+<div class="login">
+    <form name="formLogin" method="post" action="/login">
+            <div class="login__block toggled" id="l-login">
+                <div class="login__block__header">
+                    <i class="zmdi zmdi-account-circle"></i>
+                    Hi there! Please Sign in
+                </div>
+                <div class="login__block__body">
+                    <div class="form-group form-group--float form-group--centered form-group--centered">
+                        <input type="text" name="email" class="form-control">
+                        <label>Email</label>
+                        <i class="form-group__bar"></i>
+                    </div>
+                    <div class="form-group form-group--float form-group--centered form-group--centered">
+                        <input type="password" name="password" class="form-control">
+                        <label>Password</label>
+                        <i class="form-group__bar"></i>
+                    </div>
+                    <button class="btn btn--light btn--icon m-t-15" onclick="this.submit()"><i class="zmdi zmdi-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </form>            
+    </div>
+
+<% if(show == 'error'){%>
+<div class="swal2-container swal2-fade swal2-in" style="overflow-y: auto;"><div class="swal2-modal swal2-show" style="display: block; width: 500px; padding: 20px; background: rgb(255, 255, 255); min-height: 306px;" tabindex="-1"><ul class="swal2-progresssteps" style="display: none;"></ul><div class="swal2-icon swal2-error" style="display: none;"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div><div class="swal2-icon swal2-question" style="display: none;">?</div><div class="swal2-icon swal2-warning pulse-warning" style="display: block;">!</div><div class="swal2-icon swal2-info" style="display: none;">i</div><div class="swal2-icon swal2-success" style="display: none;"><span class="line tip"></span> <span class="line long"></span><div class="placeholder"></div> <div class="fix"></div></div><img class="swal2-image" style="display: none;"><h2 class="swal2-title">Access Denied!!!</h2><div class="swal2-content" style="display: block;">Invalid Username and Password.</div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;"><div class="swal2-range" style="display: none;"><output></output><input type="range"></div><select class="swal2-select" style="display: none;"></select><div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox" style="display: none;"><input type="checkbox"></label><textarea class="swal2-textarea" style="display: none;"></textarea><div class="swal2-validationerror" style="display: none;"></div><hr class="swal2-spacer" style="display: block;"><a href="/login" class="btn swal2-confirm swal2-styled" style="background-color: rgb(48, 133, 214); border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</a><button type="button" class="swal2-cancel swal2-styled" style="display: none; background-color: rgb(170, 170, 170);">Cancel</button><span class="swal2-close" style="display: none;">×</span></div></div>
+<% } %>
+
+</body>
+</html>

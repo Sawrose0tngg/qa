@@ -1,0 +1,14 @@
+<aside id="navigation"> 
+    <div class="navigation__menu c-overflow">
+    	<% if(loggedUser.role == "0") {%>
+	      <ul>
+	        <li><a href="/users"><i class="zmdi zmdi-view-list"></i> Question</a></li>
+	        <li><a href="/users/answer"><i class="zmdi zmdi-view-carousel"></i> Answer</a></li>
+	      </ul>
+	    <%} else {%>
+	    	<!--<ul>
+	        	<li><a href="/answer-view?userId=<%= loggedUser._id%>"><i class="zmdi zmdi-layers"></i> My Answer</a></li>
+	      	</ul>-->
+	    <%}%>
+    </div>
+</aside>

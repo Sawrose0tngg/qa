@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card__header">
+    <h2>Edit Questions</h2>
+  </div>
+  <form method="Post" id="editQuestion" action="/users/edit_question?questionId=<%= question._id%>">
+    <div class="card__body">
+      <div class="row">
+        <div class="card__body">
+          <p>Question</p>
+          <div class="form-group">
+            <textarea class="form-control" name="question" value placeholder="Enter a new quesion here..."><%= question.question%></textarea>
+            <i class="form-group__bar"></i> </div>
+        </div>
+        <div class="card__footer">
+          <button class="btn btn-default" onclick="$('#page-loader').show();document.getElementById('editQuestion').submit()">Save</button>
+          <button type="button" class="btn btn-link" onclick="javascript:location='/users';">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
