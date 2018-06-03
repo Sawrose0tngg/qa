@@ -33,6 +33,7 @@
   #ansbody {
     display: none;
   }
+  
 
 </style>
 
@@ -112,13 +113,13 @@
   <ul class="top-menu">
     <li class="top-menu__trigger hidden-lg hidden-md"> <a data-toggle="dropdown" href=""> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
       <ul class="dropdown-menu pull-right">
-        <li><a href="#"><i class="zmdi zmdi-account"></i> <small><%= loggedUser.email%></small></a></li>
+        <li><a href="#"><i class="zmdi zmdi-account"></i> <small><%= loggedUser%></small></a></li>
         <li><a href="/login?action=logout"><i class="zmdi zmdi-sign-in"></i> <small>Logout</small></a></li>
       </ul>
     </li>
     <li class="top-menu__apps dropdown hidden-xs hidden-sm"> <a data-toggle="dropdown" href=""> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
       <ul class="dropdown-menu pull-right">
-        <li><a href="#"><i class="zmdi zmdi-account"></i> <small><%= loggedUser.email%></small></a></li>
+        <li><a href="#"><i class="zmdi zmdi-account"></i> <small><%= loggedUser%></small></a></li>
         <li><a href="/login?action=logout"><i class="zmdi zmdi-sign-in"></i> <small>Logout</small></a></li>
       </ul>
     </li>

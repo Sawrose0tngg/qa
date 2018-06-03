@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title%></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+
+	<div class="container" style="padding: 2% 20%;">
+		<div style="background: #909a86;padding: 2% 5%;border-radius:15px">
+			<h1>Join Now</h1>
+			<form id="subscribeForm">
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" name="email" id="email" placeholder="Enter your email address" class="form-control">
+				</div>
+				<div class="form-group">
+					<div class="g-recaptcha" data-sitekey="6Lfy7lwUAAAAAJ0nZIZ0p2hsf3kzQtOTfElRQdcB"></div>
+				</div>
+				<input type="submit" value="Submit" class="btn btn-primary">
+			</form>
+		</div>
+	</div>
+
+	<script>
+		document.getElementById('subscribeForm').addEventListener('submit', submitForm);
+
+		function submitForm(e) {
+			e.preventDefault();
+
+			const email = document.querySelector('#email').value;
+			const captcha = document.querySelector('#g-recaptcha-response').value;
+
+			fetch('/captcha', {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json, text/plain, */*',
+					'Content-type': 'application/json'
+				},
+				body:JSON.stringify({email:email,captcha:captcha})
+			})
+			.then((res) => res.json())
+			.then((data)=> {
+				if(data.success == false) {
+					alert(data.msg);
+				}else {
+					window.location.href='http://localhost:3000/?user='+data.user;
+				}
+			});
+
+		}
+
+	</script>
+
+</body>
+</html>

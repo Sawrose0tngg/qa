@@ -29,6 +29,7 @@
             <div class="card__body">
               <p>Question</p>
               <div class="form-group">
+                
                 <textarea class="form-control" name="answer" placeholder="Please give suitable answer...."></textarea>
                 <i class="form-group__bar"></i> </div>
             </div>
@@ -101,7 +102,7 @@
       html += '<div class="card__body">'+
               '<input class="form-control" type="text" name="question'+i+'" value="'+queList[i]+'" readonly="true">'+
               '<br><div class="form-group">'+
-                '<textarea class="form-control" name="answer'+i+'" placeholder="Please give suitable answer...."></textarea>'+
+                '<i class="zmdi zmdi-forward"></i><textarea class="form-control" name="answer'+i+'" placeholder="Please give suitable answer...."></textarea>'+
                 '<input type="hidden" name="questionId'+i+'" value="'+queId[i]+'">'+
                 '<i class="form-group__bar"></i> </div>'+
               '</div>';
